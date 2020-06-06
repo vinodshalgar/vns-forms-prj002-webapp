@@ -1,5 +1,10 @@
 version: 0.2
-
+env:
+  secret-manager:
+    LOGIN: '333976912695760a404a3bd74ed401e4dafba382'
+    HOST: 'https://sonarcloud.io'
+    Organization: 'vinodshalgar'
+    Project: 'webapp002'
 phases:
   install:
     commands:
@@ -20,6 +25,8 @@ phases:
       #- yarn test
       - echo building
       - yarn build
+      - echo this is vinod test
+      - echo $LOGIN
 artifacts:
   files:
     - "**/*"
