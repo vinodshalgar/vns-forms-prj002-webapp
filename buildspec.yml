@@ -17,6 +17,10 @@ phases:
       - apt install --no-install-recommends yarn
   pre_build:
     commands:
+      - echo sonar download
+      - wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.3.0.1492-linux.zip
+      - unzip ./sonar-scanner-cli-3.3.0.1492-linux.zip
+      - export PATH=$PATH:/sonar-scanner-3.3.0.1492-linux/bin/
       - echo install yarn
       - yarn
   build:      
@@ -24,9 +28,7 @@ phases:
       - echo testing
       #- yarn test
       - echo building
-      - yarn build
-      - echo this is vinod test
-      - echo $LOGIN
+      - yarn build      
 artifacts:
   files:
     - "**/*"
